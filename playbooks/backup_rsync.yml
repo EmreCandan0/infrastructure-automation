@@ -1,9 +1,0 @@
----
-- name: Rsync Backup Playbook
-  hosts: mainserver
-  become: false
-  tasks:
-    - name: Web dosyalarını backup sunucuya rsync ile aktar
-      ansible.builtin.shell: |
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" /var/www/html/ emre@192.168.19.130:/home/emre/backup/html/
-
