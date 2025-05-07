@@ -1,0 +1,40 @@
+---
+- name: OpenLDAP Server Kurulumu
+  hosts: backupserver
+  become: yes
+
+  vars:
+    ldap_domain: "reklam.ajansi"
+    ldap_organization: "ReklamAjansi"
+    ldap_admin_password: "Reklamajansi.123"
+
+  tasks:
+    - name: OpenLDAP ve gerekli paketleri yükle
+      apt:
+        name:
+          - slapd
+          - ldap-utils
+        state: present
+        update_cache: yes
+
+    - name: OpenLDAP konfigürasyonunu önceden ayarla
+      debconf:
+        name: slapd
+        question: "{{ item.question }}"
+        value: "{{ item.value }}"
+        vtype: "{{ item.vtype }}"
+      loop:
+        - { question: "slapd/internal/adminpw", value: "{{ ldap_admin_password }}", vtype: "password" }
+        - { question: "slapd/internal/generated_adminpw", value: "{{ ldap_admin_password }}", vtype: "password" }
+        - { question: "slapd/password1", value: "{{ ldap_admin_password }}", vtype: "password" }
+        - { question: "slapd/password2", value: "{{ ldap_admin_password }}", vtype: "password" }
+        - { question: "slapd/domain", value: "{{ ldap_domain }}", vtype: "string" }
+        - { question: "slapd/organization", value: "{{ ldap_organization }}", vtype: "string" }
+        - { question: "slapd/backend", value: "MDB", vtype: "select" }
+        - { question: "slapd/no_configuration", value: "false", vtype: "boolean" }
+
+    - name: slapd servisini yeniden başlat
+      systemd:
+        name: slapd
+        state: restarted
+        enabled: yes
