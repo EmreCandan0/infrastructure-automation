@@ -1,0 +1,12 @@
+dn: uid=emre.candan,ou=management,ou=people,dc=reklamajansi,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Emre Candan
+sn: Manager
+uid: emre.candan
+uidNumber: 11002
+gidNumber: 20010
+homeDirectory: /home/emrecandan
+loginShell: /bin/bash
+userPassword: {CRYPT}$6$49XjZQ17A/skksIo$IOJh2kOQ35/sakTLmqrEuNxkzMo1kg/dCzqhMQAViYWZoWBcWxA8NPQUSS8nVPnVZ/vjjuNq3yI.bjiXmSfWS/

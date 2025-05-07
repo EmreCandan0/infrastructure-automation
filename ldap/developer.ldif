@@ -1,0 +1,3 @@
+dn: ou=developer,ou=people,dc=reklamajansi,dc=com
+objectClass: organizationalUnit
+ou: developer

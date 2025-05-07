@@ -1,0 +1,29 @@
+---
+- name: LDAP Sunucusuna Kullanıcı Ekle
+  hosts: mainserver
+  become: true
+
+  vars:
+    ldap_base_dn: "dc=reklamajansi,dc=com"
+
+    users:
+      - uid: "ayse"
+        cn: "Ayse Demir"
+        sn: "Demir"
+        uidNumber: 10002
+        gidNumber: 10000
+        homeDirectory: "/home/ayse"
+        loginShell: "/bin/bash"
+        userPassword: "ayse1234"   # İstersen burada başka kullanıcılar da ekleyeceğiz
+
+  tasks:
+
+    - name: Kullanıcı için LDIF dosyasını oluştur
+      template:
+        src: ldap_user.ldif.j2
+        dest: "/tmp/{{ item.uid }}.ldif"
+      loop: "{{ users }}"
+
+    - name: LDAP'a kullanıcı ekle
+      command: ldapadd -x -D "cn=admin,{{ ldap_base_dn }}" -w admin -f "/tmp/{{ item.uid }}.ldif"
+      loop: "{{ users }}"

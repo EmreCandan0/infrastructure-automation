@@ -1,0 +1,3 @@
+dn: ou=management,ou=people,dc=reklamajansi,dc=com
+objectClass: organizationalUnit
+ou: management

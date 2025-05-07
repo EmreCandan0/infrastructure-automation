@@ -1,0 +1,13 @@
+dn: uid=ceren.cicek,ou=people,dc=reklamajansi,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Ceren Cicek
+sn: Cicek
+uid: ceren.cicek
+uidNumber: 10002
+gidNumber: 10000
+homeDirectory: /home/ceren
+loginShell: /bin/bash
+userPassword: {CRYPT}$6$rounds=656000$abcdefghijklmnopqrst$KZd/y9WExOzHZOkMz5XxH7IXb4qx0ZavlS7Wt2Z9UOcwZ1I.jZ7DnKacJqfq8P/fAk8giDb4GPAw7pHa4d5Z01
+

@@ -1,0 +1,12 @@
+dn: uid=sevval.ozdemir,ou=developer,ou=people,dc=reklamajansi,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: Şevval Özdemir
+sn: Developer
+uid: sevval.ozdemir
+uidNumber: 11001
+gidNumber: 20010
+homeDirectory: /home/alice
+loginShell: /bin/bash
+userPassword: {CRYPT}$6$EUL0Xk9vWWXsyb7B$ryu7XgPvTPZvvMe9azofbbfHooZqII6aWE8LhRe5JC6lJQGjkMFM9XFdh8b6uLg4wKC9FdiG.llPErgKB/maj1
