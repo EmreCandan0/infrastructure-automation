@@ -1,0 +1,2 @@
+check directory backup_dir with path /home/emre/backup/html
+  if does not exist then alert
