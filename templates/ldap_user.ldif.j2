@@ -1,0 +1,12 @@
+dn: uid={{ item.uid }},ou=people,{{ ldap_base_dn }}
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: {{ item.cn }}
+sn: {{ item.sn }}
+uid: {{ item.uid }}
+uidNumber: {{ item.uidNumber }}
+gidNumber: {{ item.gidNumber }}
+homeDirectory: {{ item.homeDirectory }}
+loginShell: {{ item.loginShell }}
+userPassword: {{ item.userPassword | password_hash('sha512') }}
