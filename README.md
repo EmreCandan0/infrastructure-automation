@@ -7,7 +7,9 @@ This project builds a secure, observable, and automated infrastructure using two
 ## 🌐 System Overview
 
 [LDAP Users]
+
 ↓
+
 [Main Server]
 
 Ansible
